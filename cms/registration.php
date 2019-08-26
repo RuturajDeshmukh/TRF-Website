@@ -23,9 +23,15 @@ $pusher = new Pusher\Pusher(getenv('APP_KEY'), getenv('APP_SECRET'), getenv('APP
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {
 
-    $username = trim($_POST['username']);
+    $username = trim($_POST['name']);
     $email    = trim($_POST['email']);
     $password = trim($_POST['password']);
+	$branch = trim($_POST['Department']);
+	$year = trim($_POST['Year']);
+	$id=trim($_POST['grno']);
+	$description= trim( $_POST['description']);
+  $linkedin= trim( $_POST['linkedin']));
+  $glink=trim($_POST['google']);
 
 
     $error = [
@@ -100,7 +106,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if(empty($error)){
 
-        register_user($username, $email, $password);
+        register_user($username, $email, $password,$branch,$year,$id,$description,$linkedin,$glink);
 
         $data['message'] = $username;
 
@@ -156,6 +162,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                              <p><?php echo isset($error['email']) ? $error['email'] : '' ?></p>
               
                         </div>
+						
                          <div class="form-group">
                             <label for="password" class="sr-only">Password</label>
                             <input type="password" name="password" id="key" class="form-control" placeholder="Password">
@@ -164,7 +171,47 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
                         </div>
-                
+						      <div class="form-group">
+                            <label for="id" class="sr-only">Gr-no</label>
+                            <input type="text" name="Grno" id="key" class="form-control" placeholder="Gr-no">
+
+                            
+
+                        </div>
+						<div class="form-group">
+						
+						<tr>
+						<td>Department:</td>
+						<td>
+							<select name="Department">
+							<option value="DESH">DESH</option>
+							<option value="Computer">Computer</option>
+							<option value="IT">IT</option>
+							<option value="E&TC">E&TC</option>
+							<option value="Electronics">Electronics</option>
+							<option value="Instrumentation">Computer</option>
+							<option value="Mechanical">Mechanical</option>
+							<option value="Chemical">Chemical</option>
+							<option value="Industrial and Production">Industrial and Production</option>
+							</select>
+							</td>
+						</div>
+						<div class="form-group">
+						<tr>
+						<td>Year:</td>
+						<select name="Year">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>
+						</td>
+						</div>
+						
+							
+							
+						
+						
                         <input type="submit" name="resgister" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Register">
                     </form>
                  

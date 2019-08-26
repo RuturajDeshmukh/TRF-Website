@@ -17,7 +17,7 @@
             $post_content      = escape($_POST['post_content']);
             $post_date         = escape(date('d-m-y'));
 
-       
+       echo getcwd();
         move_uploaded_file($post_image_temp, "../images/$post_image" );
        
        

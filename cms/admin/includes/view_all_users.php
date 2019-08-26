@@ -71,8 +71,8 @@
      
         echo "<td><a href='users.php?change_to_admin={$user_id}'>Admin</a></td>";
         echo "<td><a href='users.php?change_to_sub={$user_id}'>Subscriber</a></td>";
-        echo "<td><a href='users.php?source=edit_user&edit_user={$user_id}'>Edit</a></td>";
-        echo "<td><a href='users.php?delete={$user_id}'>Delete</a></td>";
+        echo "<td><a href='users.php?source=edit_user&edit_user={$user_id}' class='btn btn-info'>Edit</a></td>";
+        echo "<td><a href='users.php?delete={$user_id}' class='btn btn-info'>Delete</a></td>";
         echo "</tr>";
    
     }

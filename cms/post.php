@@ -127,10 +127,12 @@
 <?php 
 
     if(isset($_POST['create_comment'])) {
-	#	session_start();
+		session_start();
+		
 		if(isset($_SESSION['user_id']))
 		{
         $the_post_id = $_GET['p_id'];
+		//$comment_author_id =7;
         $comment_author_id = $_SESSION['user_id'];
         $comment_email = $_POST['comment_email'];
         $comment_content = $_POST['comment_content'];

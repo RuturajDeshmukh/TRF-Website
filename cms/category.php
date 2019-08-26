@@ -3,24 +3,24 @@
 
 
     <!-- Navigation -->
-    
+
     <?php  include "includes/navigation.php"; ?>
-    
- 
+
+
     <!-- Page Content -->
-    <div class="container">
+    <div class="container-fluid">
 
         <div class="row">
 
             <!-- Blog Entries Column -->
-            
+
             <div class="col-md-8">
-               
+
                <?php
 
 
     if(isset($_GET['category'])){
-        
+
       $post_category_id  = $_GET['category'];
 
 
@@ -80,19 +80,19 @@ if(isset($_SESSION['username']) && is_admin($_SESSION['username'])){
 
 
 
-    // } else 
+    // } else
 
 
 
 
     while(mysqli_stmt_fetch($stmt)){
-       
-        
+
+
         ?>
-        
+
           <h1 class="page-header">
                  <?php  ?>
-                   
+
                 </h1>
 
                 <!-- First Blog Post -->
@@ -104,14 +104,14 @@ if(isset($_SESSION['username']) && is_admin($_SESSION['username'])){
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> <?php echo $post_date ?></p>
                 <hr>
-                
+
                 <img class="img-responsive" src="images/<?php echo $post_image;?>" alt="">
                 <hr>
                 <p><?php echo $post_content ?></p>
                 <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
                 <hr>
-                
+
    <?php }    }  else {
 
 
@@ -122,28 +122,28 @@ if(isset($_SESSION['username']) && is_admin($_SESSION['username'])){
 
    }?>
 
-                
-                
-                
-                
-          
-    
+
+
+
+
+
+
 
             </div>
-            
-              
+
+
 
             <!-- Blog Sidebar Widgets Column -->
-            
-            
+
+
             <?php include "includes/sidebar.php";?>
-             
+
 
         </div>
         <!-- /.row -->
 
         <hr>
 
-   
+
 
 <?php include "includes/footer.php";?>

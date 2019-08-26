@@ -44,9 +44,18 @@ $run2 = mysqli_query($connection,$q2);
 							alert('Data NOT inserted Successfully!!');
 						</script>
 						<?php
-					}				  
+					}	
+					if($run)
+					{
+						?>
+						<script> 
+							alert('Data  inserted Successfully!!');
+						</script>
+						<?php
+					}	
+					
       }  
-      echo "Data Inserted";  
+      header("location:searchQuiz.php"); 
  }  
  else  
  {  

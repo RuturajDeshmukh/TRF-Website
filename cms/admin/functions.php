@@ -147,23 +147,23 @@ users_online();
 
 
 function confirmQuery($result) {
-    
+
     global $connection;
 
     if(!$result ) {
-          
+
           die("QUERY FAILED ." . mysqli_error($connection));
-   
-          
+
+
       }
-    
+
 
 }
 
 
 
 function insert_categories(){
-    
+
     global $connection;
 
         if(isset($_POST['submit'])){
@@ -171,9 +171,9 @@ function insert_categories(){
             $cat_title = $_POST['cat_title'];
 
         if($cat_title == "" || empty($cat_title)) {
-        
+
              echo "This Field should not be empty";
-    
+
     } else {
 
 
@@ -189,17 +189,17 @@ function insert_categories(){
 
         if(!$stmt) {
         die('QUERY FAILED'. mysqli_error($connection));
-        
+
                   }
 
 
-        
+
              }
 
-             
+
     mysqli_stmt_close($stmt);
-   
-        
+
+
        }
 
 }
@@ -209,14 +209,14 @@ function findAllCategories() {
 global $connection;
 
     $query = "SELECT * FROM categories";
-    $select_categories = mysqli_query($connection,$query);  
+    $select_categories = mysqli_query($connection,$query);
 
     while($row = mysqli_fetch_assoc($select_categories)) {
     $cat_id = $row['cat_id'];
     $cat_title = $row['cat_title'];
 
     echo "<tr>";
-        
+
     echo "<td>{$cat_id}</td>";
     echo "<td>{$cat_title}</td>";
    echo "<td><a href='categories.php?delete={$cat_id}'>Delete</a></td>";
@@ -240,7 +240,7 @@ global $connection;
 
 
     }
-            
+
 
 
 }
@@ -249,25 +249,25 @@ global $connection;
 function UnApprove() {
 global $connection;
 if(isset($_GET['unapprove'])){
-    
+
     $the_comment_id = $_GET['unapprove'];
-    
+
     $query = "UPDATE comments SET comment_status = 'unapproved' WHERE comment_id = $the_comment_id ";
     $unapprove_comment_query = mysqli_query($connection, $query);
     header("Location: comments.php");
-    
-    
+
+
     }
 
-    
-    
+
+
 
 }
 
 
 function is_admin($username) {
 
-    global $connection; 
+    global $connection;
 
     $query = "SELECT user_role FROM users WHERE username = '$username'";
     $result = mysqli_query($connection, $query);
@@ -340,7 +340,7 @@ function email_exists($email){
 }
 
 
-function register_user($username, $email, $password){
+function register_user($username,$email,$password,$branch,$year,$id){
 
     global $connection;
 
@@ -349,15 +349,23 @@ function register_user($username, $email, $password){
         $password = mysqli_real_escape_string($connection, $password);
 
         $password = password_hash( $password, PASSWORD_BCRYPT, array('cost' => 12));
-            
-            
-        $query = "INSERT INTO users (username, user_email, user_password, user_role) ";
-        $query .= "VALUES('{$username}','{$email}', '{$password}', 'subscriber' )";
+		$branch=mysqli_real_escape_string($connection,$branch);
+		$year=mysqli_real_escape_string($connection,$year);
+		
+		$id=mysqli_real_escape_string($connection, $id);
+		$description= mysqli_real_escape_string($con, $_POST['description']);
+		$linkedin= mysqli_real_escape_string($con, $_POST['linkedin']);
+		$glink=mysqli_real_escape_string($con,$_POST['google']);
+		  $imgname=$_FILES['img']['name'];
+		$tempname=$_FILES['img']['tmp_name'];
+		move_uploaded_file($tempname,"../admin/images/$imgname");
+        $query = "INSERT INTO users (username, user_email, user_password, user_role,Branch,Year,user_id,google_link,linkedin_link,user_image) ";
+        $query .= "VALUES('{$username}','{$email}', '{$password}', 'subscriber','{$branch}','{$year}','{$id}','{$glink}','{$linkedin}','{$imgname}' )";
         $register_user_query = mysqli_query($connection, $query);
 
         confirmQuery($register_user_query);
 
-        
+
 
 
 
@@ -382,9 +390,13 @@ function register_user($username, $email, $password){
          die("QUERY FAILED" . mysqli_error($connection));
 
      }
+     $rows=mysqli_num_rows($select_user_query);
+     
 
 
-     while ($row = mysqli_fetch_array($select_user_query)) {
+
+    while($row = mysqli_fetch_array($select_user_query))
+    {
 
          $db_user_id = $row['user_id'];
          $db_username = $row['username'];
@@ -403,30 +415,36 @@ function register_user($username, $email, $password){
              $_SESSION['user_id'] = $db_user_id;
 
 
-
+			if($db_user_role=="admin"){
              redirect("index.php");
+			}
+			else
+				header("location:user page/blog.php?user=$db_user_id");
 
 
          } else {
 
+           echo "<script>alert('Wrong Credentials entered!')</script>";
 
-             return false;
+           return false;
 
 
 
          }
+       }
 
 
 
-     }
 
-     return true;
+   if($rows==0) {
+
+     echo "<script>alert('Username doesnt exists!')</script>";
+
+
+
+
+   }
+
+    return true;
 
  }
-
-
-
-
-
-
-

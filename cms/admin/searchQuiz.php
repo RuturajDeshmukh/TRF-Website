@@ -52,7 +52,7 @@ $count = 0;
 		  <th>Quiz Discription</th>
 		  <th>Start Date</th>
 		  <th>End Date</th>
-		  <th>More Details</th>
+		  
 		  <th>Edit</th>
 		  <th>Delete</th>
 		</tr>
@@ -72,9 +72,9 @@ $count = 0;
 		  <td><?php echo $data['discription'];?></td>
 		  <td><?php echo $data['startDate'];?></td>
 		  <td><?php echo $data['endDate'];?></td>
-		  <td><a href="updateform/updateform.php?sid=<?php echo $data['quizId']; ?>">More details</a></td>
-		  <td><a href="editQuiz.php?sid=<?php echo $data['quizId']; ?>">edit</a></td>
-		  <td><a href="deleteQuiz.php?sid=<?php echo $data['quizId']; ?>">Delete</a></td>
+		  
+		  <td><a  class='btn btn-info' href="editQuiz.php?sid=<?php echo $data['quizId']; ?>">Edit</a></td>
+		  <td><a  class='btn btn-danger' href="deleteQuiz.php?sid=<?php echo $data['quizId']; ?>">Delete</a></td>
 		</tr>
 <?php } ?>
   </tbody>
