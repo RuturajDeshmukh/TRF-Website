@@ -180,7 +180,7 @@
 				$i=1;
 				$checked=$_POST['total'];
 				$tag=  explode(',', $checked);
-				$count = count($checked);
+				$count = count($tag);
 				$i=0;
 				foreach($tag as $selected)
 					{

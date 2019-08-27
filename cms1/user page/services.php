@@ -103,6 +103,7 @@
         foreach($arr as $s1)
         {
           if($s1==$id){
+			  $count++;
 			  $str1=$row['tags'];
 			  $str2="";
 			  //echo $str1;
@@ -122,7 +123,7 @@
 			  
 			  ?>
                                         <!-- Single Work Experience -->
-                                        <div <?php if(($count%2)==0){if($count==0){?>class="single-experience-timeline active odd-item" <?php }else {?> class="single-experience-timeline odd-item" <?php } }else { ?> class="single-experience-timeline even-item" <?php } ?> >
+                                        <div <?php if(($count%2)!==0){if($count==1){?>class="single-experience-timeline active odd-item" <?php }else {?> class="single-experience-timeline odd-item" <?php } }else { ?> class="single-experience-timeline even-item" <?php } ?> >
                                             <h5><?php echo $row['date']; ?></h5>
                                             <h4><?php echo $row['title']; ?></h4>
                                             <h6><?php echo $str2=rtrim($str2,','); ?></h6>
@@ -138,7 +139,7 @@
 		 
 		}
 		
-		$count++;
+	
 		
 		
 	  }

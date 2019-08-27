@@ -407,10 +407,10 @@ function register_user($username, $email, $password){
              $_SESSION['user_id'] = $db_user_id;
 
 					if($db_user_role=="admin"){
-             redirect("index.php");
+             redirect("../index.php");
 			}
 			else
-				header("location:user page/blog.php?user=$db_user_id");
+				header("location:../user page/blog.php?user=$db_user_id");
 
 
          } else {

@@ -416,10 +416,10 @@ function register_user($username,$email,$password,$branch,$year,$id){
 
 
 			if($db_user_role=="admin"){
-             redirect("index.php");
+             redirect("../index.php");
 			}
 			else
-				header("location:user page/blog.php?user=$db_user_id");
+				header("location:../user page/blog.php?user=$db_user_id");
 
 
          } else {

@@ -48,7 +48,7 @@
 
 
                         <li>
-                            <a href="login.php">Login</a>
+                            <a href="login/login2.php">Login</a>
                         </li>
 
 
@@ -58,7 +58,7 @@
 
                                  
                      <li>
-                        <a href="registration">Registration</a>
+                        <a href="registration/register.php">Registration</a>
                     </li>
                                   
                     

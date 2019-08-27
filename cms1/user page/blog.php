@@ -85,14 +85,14 @@
 	    				<div class="row">
 			    			<div class="col-md-12">
 			    				<div class="blog-entry ftco-animate d-md-flex">
-										<a href="single.html" class="img img-2" style="background-image: url(images/tp1.jpg);"></a>
+										<a href="single.html" class="img img-2" style="background-image: url(../admin/images/<?php echo $row['post_image'];?>);"></a>
 										<div class="text text-2 p-4">
 										
 				              <h3 class="mb-2"><a href="single.html"><?php echo $row['post_title']; ?></a></h3>
 				              <div class="meta-wrap">
 												<p class="meta">
 				              		<span><?php echo $row['post_date']; ?></span>
-				              		<span><a href="single.html"><?php $row['post_tags']; ?></a></span>
+				              		<span><a href="single.html"><?php echo $row['post_tags']; ?></a></span>
 				              		<span>x Comment</span>
 				              	</p>
 			              	</div>

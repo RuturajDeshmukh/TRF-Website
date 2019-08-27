@@ -87,10 +87,10 @@ if(isset($_SESSION['username'])) {
                                 <a href="./quiz_add.php">Add Quizes</a>
                             </li>
                             <li>
-                                <a href="./leaderboard3.php">Leaderboard</a>
+                                <a href="../leaderboard3.php">Leaderboard</a>
                             </li>
                             <li>
-                                <a href="./quiz_mainpage1.php">Give Quiz</a>
+                                <a href="../quiz_mainpage1.php">Give Quiz</a>
                             </li>
                         </ul>
 
