@@ -54,6 +54,7 @@ $count = 0;
 		  <th>Project Title</th>
 		  <th>Project Discription</th>
 		  <th>Date of publish</th>
+		
 		  <th>Status</th>
 		  <th>Tags</th>
 		  <th>View Project</th>

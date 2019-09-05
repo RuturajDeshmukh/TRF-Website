@@ -52,7 +52,7 @@
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
 					<li><a href="about.html"><b>About Me</b></a></li>
-					<li class="colorlib-active"><a href="services.html"><b>Tasks</b></a></li>
+					<li class="colorlib-active"><a href="services.php?user=<?php echo $id;?>"><b>Tasks</b></a></li>
 					<li><a href="blog.php?user=<?php echo $id;?>"><b>Blog</b></a></li>
 					<li><a href="logout.php"><b>Logout</b></a></li>
 				</ul>

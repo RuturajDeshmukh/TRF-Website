@@ -2,8 +2,10 @@
 /*things to do
 */
 
-	require('../cms/includes/db.php'); 
+	require('../cms1/includes/db.php'); 
 	session_start();
+  $kk = FALSE;
+  $o1=0;
 ?>
 
 <html>
@@ -303,6 +305,114 @@
                         <div class="row">
                           <?php
                           $qqq = "SELECT * FROM `project` ORDER BY `date` DESC LIMIT 4";
+						  if(!empty($tag_project))
+						  {
+							  $string = $tag_project;
+	 					$j=0;
+	 					$k=FALSE;
+	 					$l=0;
+						$ids = explode(',', $string);//creating logic for tag checking
+						$d=count($ids);
+						$d=$d-1;
+						
+						$qqq="SELECT * FROM project WHERE 1";
+						$result11 = mysqli_query($con,$qqq);
+						$num_rows1 = mysqli_num_rows($result11);?>
+                 <?php
+						while($row11 = mysqli_fetch_array($result11))
+							{
+								$l=0;
+								$j=0; ?>
+								
+								<?php                   
+								while($j<$d) 
+									{
+                    if($ids[$j] == "")
+                    {
+                     $ids[$j] = "a"; 
+                    }
+										if (strpos($row11['tags'], $ids[$j]) !== false) //checks whether given tag is present ot not
+								 			{
+												$l++;								 	
+								 				}
+								 			$j++;
+								 		}?>
+                      
+				<?php					if($l==$d)
+								 		{
+                      
+								 			$link = $row11['title'];	
+											$k=TRUE;
+                      if($o1%2 ==0)
+                      {?>
+                        <div class="row">
+                      <?php }
+                      $o1+=1;
+                      ?>
+                      <div class="col-md 6">
+                                <div class="card">
+                                    <a class="img-card" href="javascript:void(0)">
+                                    <img src="admin/images/<?php echo $row11['photo'];?>" />
+                                  </a>
+                                    <div class="card-content">
+                                        <h4 class="card-title">
+                                            <a href="javascript:void(0)"> <?php echo $row11['title']; ?>
+                                          </a>
+                                        </h4>
+                                        <h5 style="color: darkgray;"></h5><?php
+                                        echo $row11['date'];
+                                        ?></h5>
+                                        <p class="">
+                                            <?php echo $row11['description'] ?>
+                                        </p>
+                                        <div class="tags">
+                                          <?php 
+                                          $tagss=$row11['tags'];
+                                          $tag= array_map('intval', explode(',', $tagss));
+                                          $c=count($tag);
+                                          $i=0;
+                                          while($i<$c)
+                                              {
+                                          $query7 = "SELECT * FROM `tags` WHERE id=$tag[$i]";
+                                          $result7 = mysqli_query($con,$query7);
+                                          $row7 = mysqli_fetch_array($result7);?>
+                                          <span class="sp"><?php echo "#".$row7['name']."  "; ?></span>
+                                          <?php
+                                          $i++;
+                                          }
+                                          ?>
+                                            <span class="sp">#The_Robotics_Forum</span>
+                                            <span class="sp">#Robotics</span>
+                                            <span class="sp">#Robobot</span>
+                                            <span class="sp">#Vishwakarma_Institue_of_Techonology</span>
+                                            <span class="sp">#Pune</span>
+                                            <span class="sp"></span>
+                                            <span class="sp"></span>
+                                        </div>
+                                    </div>
+                                    <div class="card-read-more">
+                                        <a href="project_display.php?link=<?php echo $row11['title'];?>" class="btn btn-link btn-block">
+                                            Read More
+                                        </a>
+                                    
+                              
+											<?php $kk=TRUE;} ?>
+                    </div>
+                 
+                    <?php
+                    if($o1%2==0)
+                    {?>
+                  </div>
+    
+                    <?php
+								}?>
+                
+                 <?php
+
+										}
+						  }
+						    if(!$kk)
+                {
                           $rrr = mysqli_query($con,$qqq);
                           $o=1;
                           while($row = mysqli_fetch_array($rrr))
@@ -361,13 +471,13 @@
                                 </div>
                             </div>
 
-                          <?php }
+                          <?php }?></div><?php }
                            ?>
                             
                             
                       
                             
-                            </div>
+                            
                         </div>
                     </div>
     </body>

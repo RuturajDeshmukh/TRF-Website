@@ -187,7 +187,7 @@ if(isset($_SESSION['user_id']))
         $depart=$_POST['dep'];
         $year=$_POST['year'];     
     
-        $query1q = "SELECT * FROM `quizresponse`,`users` where `users`.`Branch`='$depart' and `users`.`Year`=$year and `quizresponse`.`quizId`='$quiz_id' and `users`.`user_id`=`quizresponse`.`userId` ORDER BY `score` DESC";
+        $query1q = "SELECT * FROM `quizresponse`,`users` where `users`.`Branch`='$depart' and `users`.`Year`='$year' and `quizresponse`.`quizId`='$quiz_id' and `users`.`user_id`=`quizresponse`.`userId` ORDER BY `score` DESC";
         $result1r = mysqli_query($con,$query1q);
         $iid = $_SESSION['user_id'];
         $q = "SELECT * FROM `quizresponse` where `quizresponse`.`quizId`='$quiz_id' and `quizresponse`.`userId`= $iid";
@@ -244,7 +244,7 @@ if(isset($_SESSION['user_id']))
 
     <?php }
     $ranking = 1;
-    $query = "SELECT * FROM `quizresponse`,`users` where `users`.`Branch`='$depart' and `users`.`Year`=$year and `quizresponse`.`quizId`='$quiz_id' and `users`.`user_id`=`quizresponse`.`userId` ORDER BY `score` DESC";
+    $query = "SELECT * FROM `quizresponse`,`users` where `users`.`Branch`='$depart' and `users`.`Year`='$year' and `quizresponse`.`quizId`='$quiz_id' and `users`.`user_id`=`quizresponse`.`userId` ORDER BY `score` DESC";
         $result = mysqli_query($con,$query);
         while($row = mysqli_fetch_array($result))
           {
@@ -284,7 +284,7 @@ if(isset($_SESSION['user_id']))
         $depart=$_POST['dep'];
         $year=$_POST['year'];     
     
-        $query1q = "SELECT * FROM `quizresponse`,`users` where `users`.`Year`=$year and `quizresponse`.`quizId`='$quiz_id' and `users`.`user_id`=`quizresponse`.`userId` ORDER BY `score` DESC";
+        $query1q = "SELECT * FROM `quizresponse`,`users` where `users`.`Year`='$year' and `quizresponse`.`quizId`='$quiz_id' and `users`.`user_id`=`quizresponse`.`userId` ORDER BY `score` DESC";
         $result1r = mysqli_query($con,$query1q);
         $iid = $_SESSION['user_id'];
         $q = "SELECT * FROM `quizresponse` where `quizresponse`.`quizId`='$quiz_id' and `quizresponse`.`userId`= $iid";
@@ -341,7 +341,7 @@ if(isset($_SESSION['user_id']))
 
     <?php }
     $ranking = 1;
-    $query = "SELECT * FROM `quizresponse`,`users` where `users`.`Year`=$year and `quizresponse`.`quizId`='$quiz_id' and `users`.`user_id`=`quizresponse`.`userId` ORDER BY `score` DESC";
+    $query = "SELECT * FROM `quizresponse`,`users` where `users`.`Year`='$year' and `quizresponse`.`quizId`='$quiz_id' and `users`.`user_id`=`quizresponse`.`userId` ORDER BY `score` DESC";
         $result = mysqli_query($con,$query);
         while($row = mysqli_fetch_array($result))
           {
@@ -677,6 +677,22 @@ else if(!empty($_POST['dep']) AND empty($_POST['year']))
         <div class="line seven"></div>
       </div>
     </li>
+	
+		<li>
+      <input type="radio" name="1" id="elecs" value="Electronics">
+      <label for="Electronics">Electronics</label>
+      <div class="bullet">
+        <div class="line zero"></div>
+        <div class="line one"></div>
+        <div class="line two"></div>
+        <div class="line three"></div>
+        <div class="line four"></div>
+        <div class="line five"></div>
+        <div class="line six"></div>
+        <div class="line seven"></div>
+      </div>
+    </li>
+	
         <li>
       <input type="radio" name="1" id="indus" value="Indus & Production">
       <label for="Indus & Production">Indus & Production</label>
@@ -691,6 +707,7 @@ else if(!empty($_POST['dep']) AND empty($_POST['year']))
         <div class="line seven"></div>
       </div>
     </li>
+
         
   </ul>
     <br>
@@ -712,7 +729,7 @@ else if(!empty($_POST['dep']) AND empty($_POST['year']))
       </div>
     </li>
     <li>
-      <input type="radio" name="2" id="fy"  value="1">
+      <input type="radio" name="2" id="fy"  value="FY">
       <label for="fy">First Year</label>
       <div class="bullet">
         <div class="line zero"></div>
@@ -726,8 +743,8 @@ else if(!empty($_POST['dep']) AND empty($_POST['year']))
       </div>
     </li>
         <li>
-      <input  type="radio" name="2" id="sy" value="2">
-      <label for="sy">Second Year</label>
+      <input  type="radio" name="2" id="SY" value="SY">
+      <label for="SY">Second Year</label>
       <div class="bullet">
         <div class="line zero"></div>
         <div class="line one"></div>
@@ -740,7 +757,7 @@ else if(!empty($_POST['dep']) AND empty($_POST['year']))
       </div>
     </li>
         <li>
-      <input  type="radio" name="2" id="ty" value="3">
+      <input  type="radio" name="2" id="ty" value="TY">
       <label for="ty">Third Year</label>
       <div class="bullet">
         <div class="line zero"></div>
@@ -754,7 +771,7 @@ else if(!empty($_POST['dep']) AND empty($_POST['year']))
       </div>
     </li>
         <li>
-      <input  type="radio" name="2" id="final" value="4">
+      <input  type="radio" name="2" id="final" value="BE">
       <label for="final">Fourth Year</label>
       <div class="bullet">
         <div class="line zero"></div>

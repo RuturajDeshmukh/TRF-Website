@@ -48,7 +48,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Blog Display Page</title>
+    <title>Blog Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -109,7 +109,10 @@
             <h1 class="mb-4"><?php echo $post_title ?></h1>
             <a class="category mb-5" href="#"><?php echo $row['post_tags']; ?></a>
             <div class="post-content-body">
-              <?php echo $row['post_content']; ?>
+				<?php $string = $row['post_content']; 
+				$firstcharacter = $string[0];
+				$next = substr($string,1); ?>
+             <p><span class="firstcharacter"> <?php echo $firstcharacter; ?></span><?php echo $next; ?></p>
             </div>
 <br>       
             <hr>
@@ -213,25 +216,31 @@
                     <span class="icon fa fa-search"></span>
                     <input type="text" class="form-control" id="s" name="title" placeholder="Type post title ">
                   </div>
-                  <button type="submit" form="form2" value="Submit" id="Submit" name="Submit1">Submit</button>
+                  <button type="submit" form="form2" value="Submit1" id="Submit1" name="Submit1">Submit</button>
                 </form>
               </div>
                 <div class="sidebar-box">
                 <h3 class="heading">Categories</h3>
                 <ul class="categories">
-                  <form id="form1" action="../blogs/index.php" method="post">
+                  <form id="form1" name="form1" action="../blogs/index.php" method="post">
                   <?php 
                 $qq1 = "SELECT * FROM `categories` WHERE 1";
-                $rr1 = mysqli_query($con,$qq1);
+                $rr1 = mysqli_query($con,$qq1);?>
+                <input type="hidden" name="categories" id="categories" value="">
+                <?php
                 while($row = mysqli_fetch_array($rr1))
                 {
                   $val = $row['cat_title'];
                 ?>
-                  <input type="radio" name="categories" id="categories" value="<?php echo $val; ?>"><?php echo $val; ?><br>
-                <?php } ?>
-                </ul>
-                <button type="submit" form="form1" value="Submit" id="Submit" name="Submit">Submit</button>
+                
+                  <li><a href="javascript:void(0)" onclick="catfunc(this)"><?php echo $val; ?></a></li>
+                  <?php } ?>
+
+               
+                <button type="submit" form="form1" value="Submit" id="Submit" name="Submit" style="display: none;">Submit</button>
               </form>
+                </ul>
+                
               </div>
               <div class="sidebar-box">
                 <h3 class="heading">Popular Posts</h3>
@@ -286,5 +295,12 @@
     <script src="js/jquery.stellar.min.js"></script>
 
     <script src="js/main.js"></script>
+    <script>
+    function catfunc(e){
+            document.getElementById('categories').value=e.text;
+            alert(e.text);
+        // document.form1.categories.value=e;
+                $('#Submit').click();}
+              </script>
   </body>
 </html>
