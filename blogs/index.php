@@ -1,6 +1,9 @@
 <?php
   require('../cms1/includes/db.php'); 
   session_start();
+  $k1='a';
+  if(isset($_SESSION["word"])){$k1=$_SESSION["word"];}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -238,7 +241,7 @@ background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4); /* W3C, IE 10+
                   if(isset($_POST['Submit']))
                   {
                     $cat = $_POST['categories'];
-					
+                    $_SESSION["word"] = $cat;
                     $queery = "SELECT * FROM `categories` WHERE cat_title='$cat'";
                     $reesult = mysqli_query($con,$queery);
                     $r = mysqli_fetch_array($reesult);
@@ -247,29 +250,39 @@ background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4); /* W3C, IE 10+
                      $qq = "SELECT * FROM `posts` WHERE post_category_id=$k ";
 					 $rr = mysqli_query($con,$qq);
 					  $total_number=mysqli_num_rows($rr);
-					  
-					    if($total_number>$this_page_first)
-					  {
-						  $qqq = "SELECT * FROM `posts` WHERE post_category_id=$k ORDER BY `post_views_count` DESC LIMIT ".$this_page_first. ','.$results_per_page ;
-					  }
-					  else
-					   $qqq = "SELECT * FROM `posts` WHERE post_category_id=$k ORDER BY `post_views_count` DESC LIMIT ".$results_per_page ;
-					  	
+					   $qqq = "SELECT * FROM `posts` WHERE post_category_id=$k ORDER BY `post_views_count` DESC LIMIT ".$this_page_first. ','.$results_per_page ;
+					 
                   }
-				  
                   elseif (isset($_POST['Submit1']))
                    {
                       $p_name = $_POST['title'];
                       $qqq = "SELECT * FROM `posts` WHERE post_title='$p_name'";
                   }
+
                   else
-                  {	$qq="SELECT * FROM `posts`";
-                    $qqq = "SELECT * FROM `posts` ORDER BY `post_views_count` DESC LIMIT ".$this_page_first. ','.$results_per_page;
-					
-					  $rr = mysqli_query($con,$qq);
-					  $total_number=mysqli_num_rows($rr);
+                  {	
+                  if(isset($_SESSION["word"]))
+                  {
+                    $cat = $_SESSION["word"];
+                    $queery = "SELECT * FROM `categories` WHERE cat_title='$cat'";
+                    $reesult = mysqli_query($con,$queery);
+                    $r = mysqli_fetch_array($reesult);
+                    $k = $r['cat_id'];
+                    
+                     $qq = "SELECT * FROM `posts` WHERE post_category_id=$k ";
+           $rr = mysqli_query($con,$qq);
+            $total_number=mysqli_num_rows($rr);
+             $qqq = "SELECT * FROM `posts` WHERE post_category_id=$k ORDER BY `post_views_count` DESC LIMIT ".$this_page_first. ','.$results_per_page ;
                   }
+                  else
+                  {
+                    $qq="SELECT * FROM `posts`";
+					$rr = mysqli_query($con,$qq);
+            $total_number=mysqli_num_rows($rr);
+                    $qqq = "SELECT * FROM `posts` ORDER BY `post_views_count` DESC LIMIT ".$this_page_first. ','.$results_per_page;
                   
+                  }}
+                
 						$rrr = mysqli_query($con,$qqq);
                       if(mysqli_num_rows($rrr)==0)
                         {echo "No projects found";
@@ -312,7 +325,7 @@ background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4); /* W3C, IE 10+
                   </a>
                 </div>  
               
-				<?php }}
+						  <?php }}
 				   						  ?>
 
               </div>
@@ -342,7 +355,6 @@ background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4); /* W3C, IE 10+
                 'use strict';
               var curr="<?php echo $page ?>"
                   var numberOfItems = "<?php echo $total_number ?>";
-				  alert(numberOfItems);
 				  
                   var limitPerPage = 6;
                   var totalPages = Math.ceil(numberOfItems / limitPerPage);
@@ -424,11 +436,11 @@ background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4); /* W3C, IE 10+
               <div class="sidebar-box">
                 <h3 class="heading">Categories</h3>
                 <ul class="categories">
-                  <form id="form1" name="form1" action="index.php" method="post">
+                  <form id="form1" name="form1" action="" method="post">
                   <?php 
                 $qq1 = "SELECT * FROM `categories` WHERE 1";
                 $rr1 = mysqli_query($con,$qq1);?>
-                <input type="hidden" name="categories" id="categories" value="">
+                <input type="hidden" name="categories" id="categories" value="<?php if(isset($_POST['categories'])){echo $_POST['categories'];}else{echo '';} ?>">
                 <?php
                 while($row = mysqli_fetch_array($rr1))
                 {
@@ -438,7 +450,7 @@ background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4); /* W3C, IE 10+
                   <li><a href="javascript:void(0)" onclick="catfunc(this)"><?php echo $val; ?></a></li>
                   <?php } ?>
 
-                </ul>
+               
                 <button type="submit" form="form1" value="Submit" id="Submit" name="Submit" style="display: none;">Submit</button>
               </form>
                 </ul>
