@@ -48,22 +48,26 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Blog Page</title>
+    <title>Blog Display Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300, 400,700|Inconsolata:400,700" rel="stylesheet">
 
-    <link rel="stylesheet" href="blog_page/css/bootstrap.css">
-    <link rel="stylesheet" href="blog_page/css/animate.css">
-    <link rel="stylesheet" href="blog_page/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../blogs/css/bootstrap.css">
+    <link rel="stylesheet" href="../blogs/css/animate.css">
+    <link rel="stylesheet" href="../blogs/css/owl.carousel.min.css">
 
-    <link rel="stylesheet" href="blog_page/fonts/ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="blog_page/fonts/fontawesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="blog_page/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="../blogs/fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="../blogs/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../blogs/fonts/flaticon/font/flaticon.css">
 
     <!-- Theme Style -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../blogs/css/style.css">
+      
+      
+   <!-- style CSS -->
+   <link rel="stylesheet" href="../blogs/header/css/style.css">
     <style>
         .firstcharacter {
           color: #903;
@@ -77,7 +81,65 @@
         }
     </style>
   </head>
-  <body>
+  <body style="background-color: white;">
+  <header class="main_menu home_menu">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12">
+               <nav class="navbar navbar-expand-lg navbar-light">
+                  <a class="navbar-brand" href="index.html" style="width: 15%; height: 10%;"> <img id="headimg"src="../blogs/header/trflogo6.png" alt="logo" > </a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                     <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse main-menu-item" id="navbarNav">
+                     <ul class="navbar-nav">
+                        <li class="nav-item active">
+                           <a class="nav-link headeranchors" href="index.html">Developer's Page</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link headeranchors"  href="about.html">Project Tables</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link headeranchors" style="color: red;" href="services.html">Blogs</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle headeranchors" href="#" id="navbarDropdown" role="button"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Quiz
+                           </a>
+                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item headeranchors" href="blog.html">Quizes</a>
+                              <a class="dropdown-item headeranchors" href="single-blog.html">Leaderboard</a>
+                           </div>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link headeranchors" href="contact.html">Login</a>
+                        </li>
+                     </ul>
+                  </div>
+               </nav>
+            </div>
+         </div>
+      </div>
+   </header>
+   <!--::menu part end::-->
+
+   <!--::breadcrumb part start::-->
+   <section class="breadcrumb blog_bg">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12">
+               <div class="breadcrumb_iner">
+                  <div class="breadcrumb_iner_item">
+                     <h2>BLOGS: Title Of The Blog</h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+    
     
     <?php
           mysqli_stmt_fetch($stmt);
@@ -206,7 +268,7 @@
             </div>
 
           </div>
-
+		
           <!-- END main-content -->
 
           <div class="col-md-12 col-lg-4 sidebar">
@@ -259,7 +321,7 @@
                           $p_author_image = $row1['user_image'];
                           ?>
                     <li>
-                      <a href="../cms/post.php<?php echo "?p_id=".$p_id1 ?>">
+                      <a href="../cms1/post.php<?php echo "?p_id=".$p_id1 ?>">
                         <img src="admin/images/<?php echo $p_image ?>" alt="Image placeholder" class="mr-4">
                         <div class="text">
                           <h4><?php echo $row['post_title']; ?> </h4>
@@ -276,13 +338,203 @@
           </div>
           <!-- END sidebar -->
 
-        </div>
+           </div>
       </div>
     </section>
 
 
     </div>
-    
+     <style>
+        
+        /*FOOTER*/
+
+
+        footer {
+          background: #16222A;
+          background: -webkit-linear-gradient(59deg, #3A6073, #16222A);
+          background: linear-gradient(59deg, #3A6073, #16222A);
+          color: white;
+          margin-top:100px;
+        }
+
+        footer a {
+          color: #fff;
+          font-size: 14px;
+          transition-duration: 0.2s;
+        }
+
+        footer a:hover {
+          color: #FA944B;
+          text-decoration: none;
+        }
+
+        .copy {
+          font-size: 12px;
+          padding: 10px;
+          border-top: 1px solid #FFFFFF;
+        }
+
+        .footer-middle {
+          padding-top: 2em;
+          color: white;
+        }
+
+
+        /*SOCİAL İCONS*/
+
+        /* footer social icons */
+
+        ul.social-network {
+          list-style: none;
+          display: inline;
+          margin-left: 0 !important;
+          padding: 0;
+        }
+
+        ul.social-network li {
+          display: inline;
+          margin: 0 5px;
+        }
+
+
+        /* footer social icons */
+
+        .social-network a.icoFacebook:hover {
+          background-color: #3B5998;
+        }
+
+        .social-network a.icoLinkedin:hover {
+          background-color: #007bb7;
+        }
+        .social-network a.icoInstagram:hover {
+          background: #833ab4;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+
+        .social-network a.icoFacebook:hover i,
+        .social-network a.icoInstagram:hover i,
+        .social-network a.icoLinkedin:hover i {
+          color: #fff;
+        }
+
+        .social-network a.socialIcon:hover,
+        .socialHoverClass {
+          color: #44BCDD;
+        }
+
+        .social-circle li a {
+          display: inline-block;
+          position: relative;
+          margin: 0 auto 0 auto;
+          -moz-border-radius: 50%;
+          -webkit-border-radius: 50%;
+          border-radius: 50%;
+          text-align: center;
+          width: 30px;
+          height: 30px;
+          font-size: 15px;
+        }
+
+        .social-circle li i {
+          margin: 0;
+          line-height: 30px;
+          text-align: center;
+        }
+
+        .social-circle li a:hover i,
+        .triggeredHover {
+          -moz-transform: rotate(360deg);
+          -webkit-transform: rotate(360deg);
+          -ms--transform: rotate(360deg);
+          transform: rotate(360deg);
+          -webkit-transition: all 0.2s;
+          -moz-transition: all 0.2s;
+          -o-transition: all 0.2s;
+          -ms-transition: all 0.2s;
+          transition: all 0.2s;
+        }
+
+        .social-circle i {
+          color: #595959;
+          -webkit-transition: all 0.8s;
+          -moz-transition: all 0.8s;
+          -o-transition: all 0.8s;
+          -ms-transition: all 0.8s;
+          transition: all 0.8s;
+        }
+
+        .social-network a {
+          background-color: #F9F9F9;
+        }
+
+        #ftr {
+          list-style: none;
+          padding: 0;
+        }
+        .ftrl {
+          padding-left: 1.3em;
+        }
+        #ftren:before {
+          content: "\f0e0"; 
+          font-family: FontAwesome;
+          display: inline-block;
+          margin-left: -1.3em; 
+          width: 1.3em; 
+        }
+            #ftrph:before {
+          content: "\f095"; 
+          font-family: FontAwesome;
+          display: inline-block;
+          margin-left: -1.3em; 
+          width: 1.3em; 
+        }
+            #ftrad:before {
+          content: "\f015"; 
+          font-family: FontAwesome;
+          display: inline-block;
+          margin-left: -1.3em; 
+          width: 1.3em; 
+        }
+          
+
+      </style>
+    <footer class="mainfooter" role="contentinfo">
+    <div class="footer-middle">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-3 col-sm-6">
+            <!--Column1-->
+            <div class="footer-pad">
+              <h4 style="color: white;">The Robotics Forum </h4>
+              <ul class="list-unstyled " id="ftr">
+               <li class="ftrl" id="ftrad"><span>666 Upper Indiranagar, <br></span><span>Bibwewadi, </span>Pune-411001 </li>
+						<li class="ftrl" id="ftrph">1234567890  </li>
+						<li class="ftrl" id="ftren">trf@vit.edu</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h4 style="color: white;">Follow Us</h4>
+            <ul class="social-network social-circle">
+              <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#" class="icoInstagram" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 copy">
+            <p class="text-center">&copy; Copyright 2019 - The Robotics Forum. All rights reserved.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
 
@@ -294,6 +546,7 @@
     <script src="js/jquery.waypoints.min.js"></script>
     <script src="js/jquery.stellar.min.js"></script>
 
+    
     <script src="js/main.js"></script>
     <script>
     function catfunc(e){
