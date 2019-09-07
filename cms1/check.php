@@ -26,7 +26,10 @@
 	$user_id = $_SESSION['user_id'];
 	$query = "INSERT INTO `quizresponse`(`quizId`, `userId`, `score`) VALUES ('$quizId','$user_id','$correct')";
 	$run = mysqli_query($connection, $query);
-	echo "Test submitted successfully";	
+	echo ("<script>window.alert(' Quiz submitted Successfully');
+	window.location.href='quiz_mainpage1.php';
+	</script>");
+	;	
 	}
 	else
 	{

@@ -363,7 +363,10 @@
 <?php
 } else
 {
-    echo "Please login";
+    echo ("<script>window.alert('Please login to give Quiz');
+	window.location.href='quiz_mainpage1.php';
+	</script>");
+	
 } ?>
 
 </script>

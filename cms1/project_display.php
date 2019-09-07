@@ -1,5 +1,5 @@
 <?php
-	require('../cms/includes/db.php'); 
+	require('includes/db.php'); 
 	if(isset($_GET['link']))
 	 {
 		$title=$_GET['link'];

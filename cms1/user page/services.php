@@ -1,5 +1,6 @@
 <?php
-      include("db.php");
+       include("../includes/db.php");
+	     include ("../includes/header.php"); 
       $id=$_GET['user'];
 	  $query="SELECT * FROM `users`   WHERE `user_id`='$id' ";
       $run=mysqli_query($con,$query);
@@ -48,12 +49,14 @@
 	<div id="colorlib-page">
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-			<h1 id="colorlib-logo"><a href="about.html"><span class="img" style="background-image: url(../admin/images/<?php echo $img; ?>);"></span><b><?php echo $name;?></b></a></h1>
+			<h1 id="colorlib-logo"><a href="about.html"><span class="img" style="background-image: url(../admin/images/<?php echo $img; ?>);"></span><b><?php echo $r1['user_firstname']."  ".$r1['user_lastname']  ;?></b></a></h1>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
-					<li><a href="about.html"><b>About Me</b></a></li>
-					<li class="colorlib-active"><a href="services.html"><b>Tasks</b></a></li>
+					<li><a href="about.php?user=<?php echo $id;?>"><b>About Me</b></a></li>
+					<li class="colorlib-active"><a href="services.php?user=<?php echo $id;?>"><b>Tasks</b></a></li>
 					<li><a href="blog.php?user=<?php echo $id;?>"><b>Blog</b></a></li>
+					<li><a href="blog.html">Change Settings</a></li>
+					<li><a href="../../home4/tp.php">HOME</a></li>
 					<li><a href="logout.php"><b>Logout</b></a></li>
 				</ul>
 			</nav>

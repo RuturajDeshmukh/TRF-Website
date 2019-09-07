@@ -152,6 +152,7 @@ if(isset($_POST['submit']))
                                         <option value="Mechanical">Mechanical</option>
                                         <option value="Instrumentation">Instrumentation</option>
                                         <option value="Indus & Production">Indus Prod</option>
+										<option value="Chemical">Chemical</option>
                                     </select>
                                 </div>
                             </div>

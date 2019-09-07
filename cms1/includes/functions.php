@@ -365,7 +365,7 @@ function register_user($username, $email, $password){
 
  function login_user($username, $password)
  {
-
+	
      global $connection;
 
      $username = trim($username);
@@ -396,7 +396,7 @@ function register_user($username, $email, $password){
          $db_user_firstname = $row['user_firstname'];
          $db_user_lastname = $row['user_lastname'];
          $db_user_role = $row['user_role'];
-
+			
 
          if (password_verify($password,$db_user_password)) {
 
@@ -404,22 +404,22 @@ function register_user($username, $email, $password){
              $_SESSION['firstname'] = $db_user_firstname;
              $_SESSION['lastname'] = $db_user_lastname;
              $_SESSION['user_role'] = $db_user_role;
-             $_SESSION['user_id'] = $db_user_id;
+             $_SESSION['user_id'] =$db_user_id ;
 
-					if($db_user_role=="admin"){
-             redirect("index.php");
-			}
-			else
-				header("location:user page/blog.php?user=$db_user_id");
+					
+		 header("location:$_SERVER[HTTP_REFERER]");
 
 
          } else {
 
-           echo "<script>alert('Wrong Credentials entered!')</script>";
-
+           echo ("<script>window.alert('Wrong Credentials entered');
+	window.location.href='$_SERVER[HTTP_REFERER]';
+	</script>");
+	
+			
            return false;
 
-
+		 
 
          }
        }
@@ -430,15 +430,12 @@ function register_user($username, $email, $password){
 
 
 
-   if($rows==0) {
-
-     echo "<script>alert('Username doesnt exists!')</script>";
-
-
-
-
+   if($rows==0)
+   {
+	     echo ("<script>window.alert('Username does not  exists');
+	window.location.href='$_SERVER[HTTP_REFERER]';
+	</script>");
    }
-
     return true;
 
  }
