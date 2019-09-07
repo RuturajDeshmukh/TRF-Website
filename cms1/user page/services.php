@@ -52,7 +52,11 @@
 			<h1 id="colorlib-logo"><a href="about.html"><span class="img" style="background-image: url(../admin/images/<?php echo $img; ?>);"></span><b><?php echo $r1['user_firstname']."  ".$r1['user_lastname']  ;?></b></a></h1>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
+<<<<<<< HEAD
 					<li><a href="about.php?user=<?php echo $id;?>"><b>About Me</b></a></li>
+=======
+					<li><a href="about.html"><b>About Me</b></a></li>
+>>>>>>> ce04b03ac29e68137af835097b970b934e63be91
 					<li class="colorlib-active"><a href="services.php?user=<?php echo $id;?>"><b>Tasks</b></a></li>
 					<li><a href="blog.php?user=<?php echo $id;?>"><b>Blog</b></a></li>
 					<li><a href="blog.html">Change Settings</a></li>

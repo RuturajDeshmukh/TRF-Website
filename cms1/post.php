@@ -68,7 +68,10 @@
       
    <!-- style CSS -->
    <link rel="stylesheet" href="../blogs/header/css/style.css">
+<<<<<<< HEAD
    
+=======
+>>>>>>> ce04b03ac29e68137af835097b970b934e63be91
     <style>
         .firstcharacter {
           color: #903;
@@ -168,6 +171,7 @@
 </style>
   </head>
   <body style="background-color: white;">
+<<<<<<< HEAD
   <div id="modal-wrapper" class="modal">
   
   <form class="modal-content animate" action="../cms1/login/login2.php" method="post">
@@ -184,6 +188,66 @@
       <button id="btn" type="submit">Login</button>
       <a href="#" style="text-decoration:none; float:right; margin-right:34px; margin-top:26px;">Forgot Password ?</a>
     </div>
+=======
+  <header class="main_menu home_menu">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12">
+               <nav class="navbar navbar-expand-lg navbar-light">
+                  <a class="navbar-brand" href="index.html" style="width: 15%; height: 10%;"> <img id="headimg"src="../blogs/header/trflogo6.png" alt="logo" > </a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                     <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse main-menu-item" id="navbarNav">
+                     <ul class="navbar-nav">
+                        <li class="nav-item active">
+                           <a class="nav-link headeranchors" href="index.html">Developer's Page</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link headeranchors"  href="about.html">Project Tables</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link headeranchors" style="color: red;" href="services.html">Blogs</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle headeranchors" href="#" id="navbarDropdown" role="button"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Quiz
+                           </a>
+                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item headeranchors" href="blog.html">Quizes</a>
+                              <a class="dropdown-item headeranchors" href="single-blog.html">Leaderboard</a>
+                           </div>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link headeranchors" href="contact.html">Login</a>
+                        </li>
+                     </ul>
+                  </div>
+               </nav>
+            </div>
+         </div>
+      </div>
+   </header>
+   <!--::menu part end::-->
+
+   <!--::breadcrumb part start::-->
+   <section class="breadcrumb blog_bg">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12">
+               <div class="breadcrumb_iner">
+                  <div class="breadcrumb_iner_item">
+                     <h2>BLOGS: Title Of The Blog</h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+    
+>>>>>>> ce04b03ac29e68137af835097b970b934e63be91
     
   </form>
   
@@ -678,6 +742,7 @@
 
     
     <script src="js/main.js"></script>
+<<<<<<< HEAD
 	<script>
 // If user clicks anywhere outside of the modal, Modal will close
 
@@ -692,6 +757,12 @@ window.onclick = function(event) {
     function catfunc(e){
             document.getElementById('categories').value=e.text;
             
+=======
+    <script>
+    function catfunc(e){
+            document.getElementById('categories').value=e.text;
+            alert(e.text);
+>>>>>>> ce04b03ac29e68137af835097b970b934e63be91
         // document.form1.categories.value=e;
                 $('#Submit').click();}
               </script>

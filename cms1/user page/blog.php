@@ -11,7 +11,10 @@
       $name=$r1['username'];
 	  $img=$r1['user_image'];
 	  $results_per_page=5;
+<<<<<<< HEAD
 	   
+=======
+>>>>>>> ce04b03ac29e68137af835097b970b934e63be91
 	   if(!isset($_GET['page'])){
 			$page=1;
 		}
@@ -79,8 +82,11 @@
 					<li><a href="about.php?user=<?php echo $id;?>">About Me</a></li>
 					<li><a href="services.php?user=<?php echo $id;?>">Tasks</a></li>
 					<li class="colorlib-active"><a href="blog.php?user=<?php echo $id;?>">Blog</a></li>
+<<<<<<< HEAD
 					<li><a href="blog.html">Change Settings</a></li>
 					<li><a href="../../home4/tp.php">HOME</a></li>
+=======
+>>>>>>> ce04b03ac29e68137af835097b970b934e63be91
 					<li><a href="logout.php"><b>Logout</b></a></li>
 				</ul>
 			</nav>
@@ -107,7 +113,11 @@
 		
 	  }
 	  
+<<<<<<< HEAD
 	if(!empty($arr1)){  
+=======
+	  
+>>>>>>> ce04b03ac29e68137af835097b970b934e63be91
 	for($i=0;$i<count($arr1);$i++)
 	{
        ?>
@@ -127,7 +137,11 @@
 												<p class="meta">
 				              		<span><?php echo $arr1[$i]['post_date']; ?></span>
 				              		<span><a href="single.html"><?php echo $arr1[$i]['post_tags']; ?></a></span>
+<<<<<<< HEAD
 				              		
+=======
+				              		<span>x Comment</span>
+>>>>>>> ce04b03ac29e68137af835097b970b934e63be91
 				              	</p>
 			              	</div>
 				              <p class="mb-4"><?php echo $arr1[$i]['post_content']; ?></p>
@@ -142,7 +156,11 @@
 						<?php 
 	}
 		
+<<<<<<< HEAD
 	}
+=======
+	  
+>>>>>>> ce04b03ac29e68137af835097b970b934e63be91
 	  ?>
 			    		<div class="row mt-5" style="margin-top: 0px !important; margin-left: 35%;">
                 <div class="col-md-12 text-center">

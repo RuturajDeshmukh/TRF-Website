@@ -1,9 +1,16 @@
 <?php
 /*things to do
+<<<<<<< HEAD
 */	session_start();
 	include("header2.php");
 	require('../cms1/includes/db.php'); 
 	//session_start();
+=======
+*/
+
+	require('../cms1/includes/db.php'); 
+	session_start();
+>>>>>>> ce04b03ac29e68137af835097b970b934e63be91
   $kk = FALSE;
   $o1=0;
 ?>
@@ -442,8 +449,12 @@
 												$l++;								 	
 								 				}
 								 			$j++;
+<<<<<<< HEAD
 								 		}
                     ?>
+=======
+								 		}?>
+>>>>>>> ce04b03ac29e68137af835097b970b934e63be91
                       
 				<?php					if($l==$d)
 								 		{
@@ -505,20 +516,30 @@
                               
 											<?php $kk=TRUE;} ?>
                     </div>
+<<<<<<< HEAD
                  </div>
 				 </div>
                     <?php
 
+=======
+                 
+                    <?php
+>>>>>>> ce04b03ac29e68137af835097b970b934e63be91
                     if($o1%2==0)
                     {?>
                   </div>
     
                     <?php
 								}?>
+<<<<<<< HEAD
+=======
+                
+>>>>>>> ce04b03ac29e68137af835097b970b934e63be91
                  <?php
 
 										}
 						  }
+<<<<<<< HEAD
               if((!$kk)&&(!empty($tag_project)))
               {
                 echo "No projects of the entered domain";
@@ -526,6 +547,10 @@
 						    if(empty($tag_project))
                 {
 					
+=======
+						    if(!$kk)
+                {
+>>>>>>> ce04b03ac29e68137af835097b970b934e63be91
                           $rrr = mysqli_query($con,$qqq);
                           $o=1;
                           while($row = mysqli_fetch_array($rrr))

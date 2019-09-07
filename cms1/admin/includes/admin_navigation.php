@@ -106,7 +106,21 @@ if(isset($_SESSION['username'])) {
                             </li>
                         </ul>
                     </li>
+<<<<<<< HEAD
 					
+=======
+					<li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#task_dropdown"><i class="fa fa-fw fa-arrows-v"></i>Tasks<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="task_dropdown" class="collapse">
+                            <li>
+                                <a href="./searchProject.php"> View All Tasks</a>
+                            </li>
+                            <li>
+                                <a href="./addtask.php">Add New Task</a>
+                            </li>
+                        </ul>
+                    </li>
+>>>>>>> ce04b03ac29e68137af835097b970b934e63be91
                     
                     <li>
                         <a href="./categories.php"><i class="fa fa-fw fa-wrench"></i> Categories</a>
